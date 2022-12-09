@@ -1,0 +1,112 @@
+<p>Category works!</p>
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="text-center">
+                    
+                    <h2>Category Form</h2><hr>
+                </div>
+                <form [formGroup]="catForm" (ngSubmit)="Category(catForm.value)">
+                    
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Title:</label>
+                            <input type="text" class="form-control" formControlName="title">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Description:</label>
+                            <input type="text" class="form-control" formControlName="description">
+                        </div>
+                    </div>
+            
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" [disabled]="!catForm.valid">Submit</button>
+                        </div>
+                    </div>
+        
+                </form>
+               
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+<div>
+    <div *ngFor="let list of posts">
+        <li>{{ list.title }}</li>
+    </div>
+</div>
+
+
+<div class="d-none">
+    <div *ngFor="let category of cats">
+        <a (click)="onSelect(category)" id="{{ category.category_id }}">{{ category.category_name }}</a>
+        <!-- <button class="btn btn-success" (click)="save(category)">Save this</button> -->
+    </div>
+    
+    <div>
+        <input type="text" value="" #myrefid>
+        <button (click)="checkinput(myrefid)">Check Local Ref</button>
+    </div>
+    
+    <div>
+        <input type="text" value="" #mynamecheck>
+        <button (click)="checkname(mynamecheck)">Check Name alert: Local Ref</button>
+    </div>
+    
+    <div>
+        <input type="text" value="" #nickName>
+        <button (click)="viewchild(nickName)">View Child</button> 
+    </div>
+    
+    
+    <div>
+        <label>Display Dates By Using Services</label>
+        <p> {{ todaysdate}}</p>
+    </div>
+    
+    <h4>Display User List By Services</h4>
+    <div *ngFor="let user of users">
+        <p>{{ user.firstName }} {{ user.lastName }}</p>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <label>Checking Input Values: </label>
+            <input type="text" class="form-control" [(ngModel)]="myInput">
+        </div>
+        <div>
+            <p>{{ myInput }}</p>
+        </div>
+    </div>
+    
+    <span [ngStyle]="{ background: isBlue ? 'blue': 'red'}" *ngIf="false">Its Blue box for Attribute directive</span>
+    
+    
+    <div *ngFor="let cat of categories">
+        <li id="{{ cat.category_id }}"> {{ cat.category_name }} </li>
+    </div>
+    
+    
+    <div [ngSwitch]="numbers">
+        <p *ngSwitchCase="0">0</p>
+        <p *ngSwitchCase="1">One</p>
+        <p *ngSwitchCase="3">Three</p>
+        <p *ngSwitchCase="5">Five</p>
+    </div>
+    
+    <p>{{ job }}</p>
+    
+    
+    <input type="text" #fullname >
+</div>
+
+

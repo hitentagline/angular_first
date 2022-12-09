@@ -1,0 +1,40 @@
+<p>person works! {{ firstName }}</p>
+
+<div class="container">
+    <div class="row">
+    <div class="card">
+        <div class="card-body">
+                <div class="col-md-3">
+                    <form [formGroup]="calcForm">
+                        <div class="mb-3">
+                            <label>Price:</label>
+                            <input type="text" class="form-control" formControlName="singleValue">
+                            <span class="text-danger" *ngIf="calcForm.controls['singleValue'].hasError('required') &&  calcForm.controls['singleValue'].touched">Please enter single value</span>
+                        </div>
+                        <div class="mb-3">
+                            <label>Amount:</label>
+                            <input type="text" class="form-control" formControlName="amount">
+                        </div>
+                        <div class="mb-3">
+                            <label>New Price:</label>
+                            <input type="text" class="form-control" formControlName="newPrice">
+                        </div>
+                        <div class="mb-3">
+                            <label>New Amount:</label>
+                            <input type="text" class="form-control" formControlName="newAmount">
+                        </div>
+                        <div class="mb-3">
+                            <!-- <input type="button" class="btn btn-primary" value="Click here!" (click)="getCalc()"> -->
+                            <button type="button" (click)="submitForm()" class="btn btn-primary" [disabled]="calcForm.invalid">Click here</button>
+                            <button type="button" (click)="resetForm()" class="btn btn-primary" [disabled]="calcForm.invalid">Reset</button>
+
+                            <p>{{ final }}</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+

@@ -1,0 +1,54 @@
+<p>register works!</p>
+
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="text-center">
+                    
+                    <h2>Register Form</h2><hr>
+                </div>
+                <form #regForm="ngForm" (ngSubmit)="Register(regForm)">
+                    
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>First Name:</label>
+                            <input type="text" class="form-control" name="firstName" required ngModel>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Last Name:</label>
+                            <input type="text" class="form-control" name="lastName" required ngModel>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Email:</label>
+                            <input type="text" class="form-control" name="email" email required ngModel #email="ngModel">
+                            <span class="error-text" *ngIf="email.touched && !email.valid">Please enter valid email.</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Contact No.:</label>
+                            <input type="text" class="form-control" name="contact"  required ngModel #contact="ngModel">
+                            <!-- <span class="error-text" *ngIf="contact.touched">Please enter valid Mobile</span> -->
+                        </div>
+                    </div>
+            
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" [disabled]="!regForm.valid">Submit</button>
+                        </div>
+                    </div>
+        
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</div>
